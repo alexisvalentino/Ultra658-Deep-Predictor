@@ -2,6 +2,67 @@
 
 A deep learning-based predictor using TensorFlow with temperature scaling and parallel feature processing for intelligent number generation.
 
+# Theory Behind Ultra658 Deep Predictor
+
+## Core Theoretical Concepts
+
+### 1. Feature Engineering Theory
+- **Time Series Windows**
+  - Short-term (10 draws): Captures recent patterns and hot numbers
+  - Long-term (50 draws): Establishes baseline frequencies
+  - Momentum: Difference between short and long-term rates indicates trending numbers
+
+- **Decay Factor (0.96)**
+  - Exponential decay weighting gives more importance to recent appearances
+  - Formula: `decayed = decay * previous + current`
+  - Helps balance historical data vs recent trends
+
+### 2. Neural Network Theory
+- **Layer Design Rationale**
+  - Input layer (128 neurons): Captures complex feature interactions
+  - Hidden layer (64 neurons): Reduces dimensionality while maintaining information
+  - BatchNormalization: Reduces internal covariate shift
+  - Dropout (0.3): Prevents overfitting through random neuron deactivation
+  - Sigmoid output: Produces calibrated probability distribution
+
+### 3. Probability Calibration Theory
+- **Temperature Scaling**
+  ```python
+  p_calibrated = 1 / (1 + exp(-logit(p) / T))
+  ```
+  - Adjusts confidence of predictions
+  - T > 1: Softens probabilities
+  - T < 1: Sharpens probabilities
+
+### 4. Statistical Foundations
+- **Feature Importance**
+  - Frequency analysis for pattern detection
+  - Time since last appearance for cyclical behavior
+  - Rate of appearance changes for trend analysis
+  - Historical patterns for baseline probability
+
+- **Probability Theory**
+  - Conditional probability for number selection
+  - Normalized sampling without replacement
+  - Confidence scoring through mean probability
+
+### 5. Theoretical Limitations
+1. **Assumption of Patterns**
+   - Model assumes historical patterns influence future draws
+   - Cannot account for true randomness
+
+2. **Data Dependencies**
+   - Quality depends on historical data completeness
+   - Requires sufficient history for pattern recognition
+
+3. **Probability Calibration**
+   - Temperature scaling assumes global calibration works
+   - May not capture local probability variations
+
+4. **Sampling Constraints**
+   - Trade-off between constraints and true probability distribution
+   - May miss valid combinations due to constraints
+
 ## Model Architecture
 
 ### 1. Feature Engineering
