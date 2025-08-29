@@ -1,158 +1,93 @@
 # Ultra658 Deep Predictor
 
-A deep learning-based predictor for Ultra Lotto 6/58, combining neural networks with MCMC sampling for intelligent lottery number generation.
+A deep learning-based predictor using TensorFlow with temperature scaling and parallel feature processing for intelligent number generation.
 
-## Description
-This project uses advanced machine learning techniques to generate lottery combinations (6 unique numbers from 1-58) through neural networks and MCMC sampling. The system learns from historical data to propose statistically informed number combinations.
+## Model Architecture
 
-## Features
-- Neural network-based prediction model
-- MCMC sampling for combination generation
-- User-friendly GUI interface
-- Historical data analysis
-- Confidence scoring system
-- Combination save/export functionality
+### 1. Feature Engineering
+- Short and long-term window analysis (10 and 50 draws)
+- Decayed frequency counting (decay rate: 0.96)
+- Time since last appearance tracking
+- Momentum indicators (short vs long-term rates)
+- Parallel processing with ThreadPoolExecutor
 
-## Prerequisites
-- Python 3.10 (Note: Python 3.13 may cause Tcl/Tk issues)
-- Required packages:
-  ```
-  pandas
-  numpy
-  tensorflow==2.10.0
-  scikit-learn
-  ```
+### 2. Neural Network Structure
+```python
+model = Sequential([
+    Dense(128, activation='relu'),      # Input layer
+    BatchNormalization(),               # Normalize activations
+    Dropout(0.3),                       # Prevent overfitting
+    Dense(64, activation='relu'),       # Hidden layer
+    BatchNormalization(),               # Normalize activations
+    Dropout(0.3),                       # Additional regularization
+    Dense(1, activation='sigmoid')      # Output probability
+])
+```
+
+### 3. Probability Calibration
+- Temperature scaling for probability calibration
+- Grid search for optimal temperature parameter
+- Validation-based calibration fitting
 
 ## Installation
 
-1. Clone the repository
-```bash
-git clone https://github.com/alexisvalentino/Ultra658-Deep-Predictor.git
-cd Ultra658-Deep-Predictor
-```
-
-2. Create and activate virtual environment
-```bash
+1. Create virtual environment (Python 3.10 recommended):
+```powershell
 python -m venv .venv
 .\.venv\Scripts\activate
 ```
 
-3. Install dependencies
-```bash
-pip install pandas numpy tensorflow==2.10.0 scikit-learn
+2. Install dependencies:
+```powershell
+pip install pandas numpy tensorflow scikit-learn ttkthemes
 ```
 
-4. Create initial dataset
-```bash
-python csvcreation.py
+## Model Performance Features
+
+### Processing Optimizations
+- Multi-threaded feature computation
+- Model caching in models/model.h5
+- Asynchronous GUI updates
+- Progress indication during generation
+
+### Sampling Constraints
+- Even number count: 2-4
+- Minimum spread: 10
+- Maximum sampling attempts: 1000
+- Normalized probability sampling
+
+### Output Features
+- Combination generation with confidence scores
+- Historical tracking (last 5 combinations)
+- File export with timestamps
+- Clipboard integration
+
+## Technical Parameters
+- Short window size: 10 draws
+- Long window size: 50 draws
+- Decay factor: 0.96
+- Training epochs: 100 with early stopping
+- Batch size: 512
+- Validation split: 15%
+- Binary cross-entropy loss
+- Adam optimizer
+- Dropout rate: 0.3
+
+## File Structure
 ```
-
-## Usage
-
-### Running the Enhanced Predictor
-```bash
-python enhanced.py
-```
-
-The GUI will display:
-- Generated combination
-- Confidence score
-- History of previous generations
-- Options to copy or save combinations
-
-## Technical Implementation
-
-### Neural Network Architecture
-- Input layer with feature engineering
-- Hidden layers with dropout for regularization
-- Softmax output layer for number probabilities
-- MCMC sampling for final combination generation
-
-### Probability Analysis
-
-#### 1. Theoretical Probability of Ultra Lotto 6/58
-- **Total Combinations**: The number of possible combinations is given by the binomial coefficient:
-  ```
-  C(58,6) = 58!/(6!(58-6)!) = 40,475,358
-  ```
-  Each combination (e.g., `05-13-25-33-41-49`) has an equal probability:
-  ```
-  P(any combination) = 1/40,475,358 ≈ 2.47 × 10^-8
-  ```
-- **Randomness**: In a fair lottery, each number (1-58) has an equal chance of selection, subject to no repeats.
-
-#### 2. Enhanced Model Randomness
-Our model implements:
-- **Feature Engineering**: Extracts patterns from 613 historical draws
-- **Neural Network**: Multi-layer perceptron with dropout layers:
-  ```python
-  model = Sequential([
-      Dense(64, activation='relu'),
-      Dropout(0.2),
-      Dense(32, activation='relu'),
-      Dropout(0.2),
-      Dense(58, activation='softmax')
-  ])
-  ```
-- **MCMC Sampling**: Uses Metropolis-Hastings algorithm with temperature control:
-  ```
-  P(accept) = min(1, exp((new_score - best_score)/temp))
-  ```
-
-#### 3. Probability Distribution
-- **Combined Approach**: 
-  - 70% Neural network predictions
-  - 30% Historical frequency
-- **Temperature Parameter**: Controls exploration vs exploitation
-- **Effective Coverage**: Dataset covers approximately 0.0015% of possible combinations
-
-### Data Processing
-- Historical draw analysis
-- Feature extraction
-- Probability distribution modeling
-- Statistical validation
-
-## Model Limitations
-
-1. **Statistical Constraints**
-   - Small dataset (613 draws) limits pattern learning
-   - True lottery randomness makes perfect prediction impossible
-
-2. **Predictive Power**
-   - Model generates statistically plausible combinations
-   - No guarantee of future draw prediction
-   - Serves educational and simulation purposes only
-
-## Physics-Inspired Implementation
-- MCMC sampling mimics physical lottery tumbler dynamics
-- Temperature parameter simulates thermal fluctuations
-- Probability distribution reflects energy states of the system
-
-## Troubleshooting
-
-### Tcl/Tk Error
-If you encounter `_tkinter.TclError: Can't find a usable init.tcl`, follow these steps:
-
-1. Reinstall Python 3.10
-   - Download from [python.org](https://www.python.org/downloads/release/python-31011/)
-   - Use "Customize installation" with tcl/tk option
-
-2. Recreate virtual environment
-```bash
-rmdir /s .venv
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install pandas numpy tensorflow==2.10.0 scikit-learn
-```
-
-### Missing Data File
-If `combinations.csv` is missing:
-```bash
-python csvcreation.py
+Predictive model/
+├── lstmodel.py          # Main application
+├── combinations.csv     # Historical data
+├── models/             # Model cache
+│   └── model.h5
+├── output/             # Generated files
+│   ├── combinations_*.txt
+│   └── history_*.txt
+└── predictor.log       # Application logs
 ```
 
 ## Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions welcome! Please submit Pull Requests.
 
 ## License
 MIT License
@@ -161,4 +96,4 @@ MIT License
 Alexis Valentino
 
 ## Disclaimer
-This project is for educational purposes only. No guarantee of lottery success is implied or promised.
+This project is for educational purposes only. The model analyzes historical patterns but cannot predict future lottery outcomes. No guarantee of winning is implied or promised.
