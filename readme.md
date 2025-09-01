@@ -94,6 +94,18 @@ model = Sequential([
 
 # 🆕 Hot Numbers Predictor - Advanced Implementation
 
+## ⚠️ CRITICAL WARNING: Survivorship Bias Detected
+
+**IMPORTANT:** Our survivorship bias analysis (see Section 3) revealed that the "hot numbers" approach suffers from severe statistical flaws. While this section documents our implementation, users should understand that:
+
+- **Zero Consistency:** None of our "hot numbers" remained hot across time periods
+- **Statistical Noise:** Patterns found are mathematically indistinguishable from random chance  
+- **False Patterns:** What appeared to be "hot numbers" were just lucky statistical artifacts
+
+**This approach should be used for educational purposes only, not for actual lottery play.**
+
+---
+
 ## Revolutionary Approach: Guaranteed Hot Numbers Strategy
 
 Instead of trying to predict all 6 numbers perfectly, the Hot Numbers Predictor focuses on **guaranteeing 3-4 of the most frequently drawn numbers** in every combination, providing significant statistical advantages.
@@ -338,15 +350,49 @@ Since Mandel's exploit is mostly closed off, here's what you *can* do today:
 
 ---
 
-## 3. Alternative View (Why Pure Prediction Doesn't Work)
+## 3. Survivorship Bias: The Hidden Trap in Lottery Analysis
 
-- Each draw is independent
-- Probability of 6/49 numbers is always 1 in 13,983,816 — whether numbers are "hot" or not
-- "Hot/cold" tracking is psychological, not mathematical
+### **What is Survivorship Bias?**
+Survivorship bias is a logical error where we focus on successful examples while ignoring failures. In lottery analysis, this means we look at numbers that became "hot" and assume they'll stay hot, ignoring all the numbers that were once "hot" but then became "cold."
+
+### **Our Project's Survivorship Bias Analysis**
+We conducted a comprehensive analysis of our "hot numbers" approach and discovered **devastating evidence** of survivorship bias:
+
+#### **Period-by-Period Analysis (646 draws split into 3 periods):**
+- **Early Period (200 draws):** Hot numbers: [13, 39, 38, 25, 46, 53]
+- **Middle Period (200 draws):** Hot numbers: [8, 10, 58, 44, 6, 16]  
+- **Late Period (246 draws):** Hot numbers: [40, 5, 4, 51, 56, 30]
+
+#### **Consistency Test Results:**
+- **Number 13:** Hot in 1/3 periods (33.33%) - **INCONSISTENT**
+- **Number 6:** Hot in 1/3 periods (33.33%) - **INCONSISTENT**
+- **Number 38:** Hot in 1/3 periods (33.33%) - **INCONSISTENT**
+- **Number 22:** Hot in 0/3 periods (0.00%) - **INCONSISTENT**
+- **Number 40:** Hot in 1/3 periods (33.33%) - **INCONSISTENT**
+- **Number 33:** Hot in 0/3 periods (0.00%) - **INCONSISTENT**
+
+#### **Statistical Significance Test:**
+- **Chi-square p-value:** 0.962746 (❌ NOT SIGNIFICANT)
+- **Interpretation:** Frequency differences are pure random noise
+- **Rolling stability:** Only 20.24% of "hot" numbers remain hot in typical 100-draw windows
+
+### **Why This Matters:**
+1. **Zero Consistency:** None of our "hot numbers" remained hot across time periods
+2. **Statistical Noise:** The patterns we found are mathematically indistinguishable from random chance
+3. **False Patterns:** What appeared to be "hot numbers" were just lucky statistical artifacts
 
 ---
 
-## 4. Practical Action Plan
+## 4. Alternative View (Why Pure Prediction Doesn't Work)
+
+- Each draw is independent
+- Probability of 6/58 numbers is always 1 in 40,475,358 — whether numbers are "hot" or not
+- "Hot/cold" tracking is psychological, not mathematical
+- **Survivorship bias makes us see patterns that don't exist**
+
+---
+
+## 5. Practical Action Plan
 
 ### **If you're studying lotteries as education, focus on:**
 1. **Combinatorics** (Mandel's formula)
@@ -361,7 +407,7 @@ Since Mandel's exploit is mostly closed off, here's what you *can* do today:
 
 ---
 
-## 5. How Our AI Models Fit In
+## 6. How Our AI Models Fit In
 
 ### **Statistical Edge vs. Mathematical Guarantee:**
 - **Mandel's approach:** Mathematical guarantee through complete coverage
