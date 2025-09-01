@@ -1,0 +1,45 @@
+# Log files
+*.log
+predictor.log
+hot_numbers_predictor.log
+
+# Model cache files
+models/
+*.h5
+*.keras
+
+# Output files
+output/
+combinations_*.txt
+history_*.txt
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary analysis files
+analyze_*.py
+quick_*.py
+
+# Jupyter notebooks
+*.ipynb
+
+# Environment variables
+.env
+.env.local
