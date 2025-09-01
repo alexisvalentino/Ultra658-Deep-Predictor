@@ -2,11 +2,11 @@
 
 A deep learning-based lottery analysis system using TensorFlow with advanced statistical methods for educational exploration of pattern recognition in lottery draws.
 
-**🎓 Educational Focus:** This project demonstrates why lottery prediction doesn't work through rigorous statistical analysis, while showcasing advanced AI/ML techniques.
+**Educational Focus:** This project demonstrates why lottery prediction doesn't work through rigorous statistical analysis, while showcasing advanced AI/ML techniques.
 
 ---
 
-## 🚨 CRITICAL FINDINGS: Why This Project Matters
+## CRITICAL FINDINGS: Why This Project Matters
 
 ### **The Truth About Lottery Prediction**
 After comprehensive analysis using advanced neural networks, statistical tests, and survivorship bias detection, we've **definitively proven** that lottery number prediction is statistically impossible. This project serves as both:
@@ -19,7 +19,7 @@ After comprehensive analysis using advanced neural networks, statistical tests, 
 
 ---
 
-# 🧮 LOTTERY MATHEMATICS & STATISTICAL EDUCATION
+# LOTTERY MATHEMATICS & STATISTICAL EDUCATION
 
 ## 1. Survivorship Bias: The Hidden Trap in Lottery Analysis
 
@@ -145,7 +145,7 @@ Since Mandel's exploit is mostly closed off, here's what you *can* do today:
 
 ---
 
-# 🤖 TECHNICAL IMPLEMENTATION
+# TECHNICAL IMPLEMENTATION
 
 ## Theory Behind Ultra658 Deep Predictor
 
@@ -251,7 +251,7 @@ model = Sequential([
 
 ---
 
-# 📊 HISTORICAL ANALYSIS RESULTS
+# HISTORICAL ANALYSIS RESULTS
 
 **⚠️ EDUCATIONAL PURPOSE ONLY:** The following analysis demonstrates sophisticated statistical methods but has been proven invalid due to survivorship bias.
 
@@ -360,7 +360,7 @@ Based on analysis of 646 historical combinations:
 
 ---
 
-# 🚀 HOW OUR AI MODELS FIT IN
+# HOW OUR AI MODELS FIT IN
 
 ## Statistical Edge vs. Mathematical Guarantee
 
@@ -378,7 +378,7 @@ Our models don't try to beat the fundamental mathematics of lotteries. Instead, 
 
 ---
 
-# 🛠️ INSTALLATION & USAGE
+# INSTALLATION & USAGE
 
 ## Installation
 
@@ -464,7 +464,7 @@ Predictive model/
 
 ---
 
-# 📝 PROJECT INFORMATION
+# PROJECT INFORMATION
 
 ## Contributing
 Contributions welcome! Please submit Pull Requests focusing on:
