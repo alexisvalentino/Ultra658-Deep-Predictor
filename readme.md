@@ -262,38 +262,7 @@ Based on comprehensive analysis of **646 historical combinations**, we've discov
 
 **Your optimal approach:** Use 4 hot numbers consistently, prioritizing the top pairs (6-13, 13-25, 4-38, 22-25) and rotate combinations weekly for maximum coverage.
 
-### 🏆 PRIZE STRUCTURE VALIDATION
 
-#### **Do You Need All 6 Numbers to Win?**
-
-**NO!** Here's the complete prize structure analysis from 646 historical combinations:
-
-**🎯 PRIZE LEVEL PROBABILITIES:**
-- **Jackpot (6 numbers):** 0.000% - Never happened in 646 draws
-- **2nd Prize (5 numbers):** 0.310% - Very rare
-- **3rd Prize (4 numbers):** 2.167% ⭐ **YOUR TARGET**
-- **4th Prize (3 numbers):** 10.836% - Achievable
-- **Any Prize (2+ numbers):** 42.724% - Very achievable
-
-**💰 EXPECTED PRIZE VALUES:**
-- **Jackpot probability:** 1 in ∞ draws
-- **3rd Prize probability:** 1 in 46 draws ⭐ **ACHIEVABLE**
-- **Any Prize probability:** 1 in 2 draws
-
-**📊 HISTORICAL HOT NUMBER DISTRIBUTION:**
-- **0 hot numbers:** 33.7% of draws (No Prize)
-- **1 hot number:** 23.7% of draws (No Prize)
-- **2 hot numbers:** 31.6% of draws (Consolation)
-- **3 hot numbers:** 19.8% of draws (4th Prize)
-- **4 hot numbers:** 2.2% of draws (3rd Prize) 🎯
-- **5 hot numbers:** 0.3% of draws (2nd Prize)
-- **6 hot numbers:** 0.0% of draws (Jackpot - Never!)
-
-#### **Strategy Performance Validation:**
-- **Your 4 hot numbers strategy:** 2.167% success rate
-- **Random chance:** 0.232% success rate
-- **Advantage:** **9.3x better than random!** ✅
-- **Conclusion:** **YES, consistently using 4 hot numbers IS a winning strategy!**
 
 ## Installation
 
